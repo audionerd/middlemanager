@@ -1,5 +1,5 @@
-## MiddleManager
-### A Mostly Powerless Little Content Manager For Static Sites
+# MiddleManager
+## A Mostly Powerless Little Content Manager For Static Sites
 
 The MiddleManager is a very tiny content manager for static sites. It doesn't need a database – instead, it serializes your edits to a single YAML file. It provides a little helper method (`mgmt`) you can use to indicate which regions of your template you want to manage. Then – once content has been entered in the simple Admin UI – those `mgmt` calls will output the content you want, right where you want it.
 
@@ -37,7 +37,7 @@ Just `require` the extension file, and activate it from your Middleman project's
 
 ### Demo
 
-B sure to run `bundle` first, to install the dependencies.
+Be sure to run `bundle` first, to install the dependencies.
 
 Try a demo Middleman site with MiddleManager activated:
 
@@ -48,19 +48,25 @@ You can also test the MiddleManager Admin UI directly.
 
     $ bundle exec shotgun fixtures/config.ru -s thin
 
-Visit http://localhost:9393/admin to see it working. The Admin UI is just a Sinatra app (`MiddleManager::Server`) which can be run as an independent app, or even embedded in other apps via Rack.
+Visit http://localhost:9393/admin to see it working. 
+
+![](https://github.com/downloads/audionerd/middlemanager/middlemanager-admin-ui-index.png)
+
+![](https://github.com/downloads/audionerd/middlemanager/middlemanager-admin-ui-region-editing.png)
+
+The Admin UI is just a Sinatra app (`MiddleManager::Server`) which can be run as an independent app, or even embedded in other apps via Rack.
 
 ### Influences
 
-[Perch](http://grabaperch.com/): a really nice, lightweight CMS written in PHP. If you want a well-tested, well-supported, professional solution, check it out.
+* [Perch](http://grabaperch.com/): a really nice, lightweight CMS written in PHP. If you want a well-tested, well-supported, professional solution, check it out.
 [http://grabaperch.com/](http://grabaperch.com/)
 
-[Create.js](http://createjs.org/)/VIE use RDFa annotations for editable blocks. Really clever idea. If MiddleManager used/implemented this spec, their JavaScript editor should "just work" ...
+* [Create.js](http://createjs.org/)/VIE use RDFa annotations for editable blocks. Really clever idea. If MiddleManager used/implemented this spec, their JavaScript editor should "just work" ...
 [http://createjs.org/](http://createjs.org/)
 
-[Cozy](https://github.com/gnarmis/cozy), which has this concept of a simple REST API backed by the filesystem (if MiddleManager gets a REST API, it'll probably be like this). It has a simple [Node class for file system traversal](https://github.com/gnarmis/cozy/blob/master/node.rb), which is worth a read.
+* [Cozy](https://github.com/gnarmis/cozy), which has this concept of a simple REST API backed by the filesystem (if MiddleManager gets a REST API, it'll probably be like this). It has a simple [Node class for file system traversal](https://github.com/gnarmis/cozy/blob/master/node.rb), which is worth a read.
 
-[Middleman](https://github.com/middleman/middleman), a static site generator, with a simple pipeline to bring flat YAML data into templates. Really smart way to bootstrap editing if you're a programmer. But, with large amounts of data, I wanted a simple Admin UI to manage the complexity (and to bring designers and copywriters into the site-building process). That's the goal for MiddleManager.
+* [Middleman](https://github.com/middleman/middleman), a static site generator, with a simple pipeline to bring flat YAML data into templates. Really smart way to bootstrap editing if you're a programmer. But, with large amounts of data, I wanted a simple Admin UI to manage the complexity (and to bring designers and copywriters into the site-building process). That's the goal for MiddleManager.
 
 ### TODO
 - More Content Types – Serialize `Content` objects (e.g., `Text`, `Image`, `Article`, etc.) instead of a single simple Hash
