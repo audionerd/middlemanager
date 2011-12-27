@@ -1,0 +1,21 @@
+---
+title: Home Page
+---
+
+<h3><%= mgmt 'Heading' %></h3>
+<p>
+  <%= mgmt 'Body' %>
+</p>
+<p>
+  <%= image_tag mgmt('Image') %>
+</p>
+
+<%= mgmt('HTML') %>
+
+<p>
+  View an <%= link_to 'interior page', 'interior.html' %> or a <%= link_to 'dynamically generated page', 'generated.html' %>
+</p>
+
+
+<hr />
+<%= link_to 'Edit this page', '/admin' %>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Middle/Manager</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+  </head>
+  <body>
+    
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="<%= url('/') %>">Middle/Manager</a>
+          <ul class="nav">
+            <li><a href="<%= url('/#pages') %>">Pages</a></li>
+            <li class="active"><a href="<%= url('/#regions') %>">Regions</a></li>
+            <li><a href="<%= url('/#yaml') %>">YAML Data</a></li>
+            <li><a href="<%= url('/#settings') %>">Settings</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
+    
+  </body>
+</html>

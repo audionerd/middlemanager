@@ -1,0 +1,17 @@
+---
+title: Interior Page
+---
+
+<h3><%= mgmt 'Heading' %></h3>
+<p>
+  <%= mgmt 'Body' %>
+</p>
+
+<%= mgmt('Markdown') %>
+
+<% if mgmt('var') == 'true' %>
+  <p>var is true!</p>
+<% end %>
+
+<hr />
+<%= link_to 'Edit this page', '/admin' %>

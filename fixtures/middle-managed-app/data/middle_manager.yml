@@ -1,0 +1,73 @@
+---
+/index.html@Heading:
+  path: /index.html
+  name: Heading
+  value: Home Page
+  title: Home Page
+  options: {}
+/index.html@Body:
+  path: /index.html
+  name: Body
+  value: Welcome!
+  title: Home Page
+  options: {}
+/index.html@Image:
+  path: /index.html
+  name: Image
+  value: https://www.google.com/intl/en_com/images/srpr/logo3w.png
+  title: Home Page
+  options: {}
+/index.html@HTML:
+  path: /index.html
+  name: HTML
+  value: <img src="http://placehold.it/350x150">
+  title: Home Page
+  options: {}
+/interior.html@Heading:
+  path: /interior.html
+  name: Heading
+  value: This is the heading of the page
+  title: Interior Page
+  options: {}
+/interior.html@Body:
+  path: /interior.html
+  name: Body
+  value: Interior body content goes here.
+  title: Interior Page
+  options: {}
+/interior.html@var:
+  path: /interior.html
+  name: var
+  value: 'true'
+  title: Interior Page
+  options: {}
+/interior.html@Markdown:
+  path: /interior.html
+  name: Markdown
+  value: ! "### Markdown\r\n\r\n## Heading no. 2\r\n\r\nA paragraph of text.\r\n\r\nComplete!"
+  title: Interior Page
+  options: {}
+/generated.html@Heading:
+  path: /generated.html
+  name: Heading
+  value: ! '{{ mgmt Heading }}'
+  title: Interior Page
+  options: {}
+/generated.html@Body:
+  :path: /generated.html
+  :name: Body
+  :value: ! '{{ mgmt Body }}'
+  :title: Interior Page
+  :options: {}
+/generated.html@Markdown:
+  :path: /generated.html
+  :name: Markdown
+  :value: ! '{{ mgmt Markdown }}'
+  :title: Interior Page
+  :options: {}
+/generated.html@var:
+  :path: /generated.html
+  :name: var
+  :value: ! '{{ mgmt var }}'
+  :title: Interior Page
+  :options: {}

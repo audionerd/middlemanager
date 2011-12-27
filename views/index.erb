@@ -1,0 +1,88 @@
+<style>
+  table th {
+    color: #888;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 0.175em;
+    font-size: 90%;
+  }
+  table th, table td {
+    vertical-align: middle;
+  }
+  .name {
+    font-weight: bold;
+  }
+  .value {
+    font-family: Monaco, monospace;
+    font-size: 90%;
+  }
+</style>
+
+<div class="sidebar">
+</div>
+
+<div class="content">
+
+  <div style="margin: 60px 0 20px 5px;">
+    <h3>Regions</h3>
+  </div>
+  
+  <% 
+  # keys = @regions.first.keys + ['actions'] 
+  keys = %w( title name value path actions )
+  labels = %w( Title Region Value Path Actions )
+  %>
+  <table class="zebra-striped">
+    <thead>
+      <tr>
+        <% for n in (0..labels.size) %>
+          <th><%= labels[n] %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+    <% for region in @regions %>
+      <tr>
+        <% for key in keys[0..-2] %>
+          <td class="<%= key %>">
+            <% if key == 'name' %>
+              <a href="<%= url("/region#{MiddleManager::Store.generate_key(region.name, region.path)}/edit") %>"><%= region.name %></a>
+            <% elsif key == 'path' %>
+              <a href="<%= region[key] %>"><%= region[key] %></a>
+            <% elsif key == 'value' %>
+              <%= Rack::Utils::escape_html region[key][0..39] + (region[key].size > 39 ? '…' : '') %>
+            <% else %>
+              <%= region[key] %>
+            <% end %>
+          </td>
+        <% end %>
+        <td>
+          
+          <div style="margin-top: 8px;">
+            <a href="<%= url("/region#{MiddleManager::Store.generate_key(region.name, region.path)}/edit") %>" class="btn">Edit</a>
+          
+            <form action="<%= url("/region#{MiddleManager::Store.generate_key(region.name, region.path)}") %>" method="post" style="display: inline-block;">
+              <div style="margin:0;padding:0 0 0 1em;">
+                <a class="delete danger red" href="#">Delete</a>
+                <input type="submit" value="Delete" style="display: none;"/>
+                <input name="_method" type="hidden" value="delete" />
+              </div>
+            </form>
+          </div>
+          
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+    
+</div>
+
+<script>
+  $('.delete').click(function() {
+    if (confirm("Delete?")) {
+      $(this).parents("form:eq(0)").submit();
+    }
+    return false;
+  })
+</script>
