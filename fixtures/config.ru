@@ -1,3 +1,5 @@
+# use this file to simply test the admin of MiddleManager
+
 require File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib', 'middle_manager'))
 
 map "/admin" do

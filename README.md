@@ -9,31 +9,53 @@ The MiddleManager is a very tiny content manager for static sites. It doesn't ne
 - Serializes all edits to a single YAML file (no database required)
 - Middleman extension included: a simple local editing option for static Middleman sites
 
-### Getting Started
+### Installing
 
-In your templates, use the `mgmt` helper to describe editable areas. For example, in ERB you'd do this:
+    $ git clone git://github.com/audionerd/middlemanager.git
+
+For MiddleManager
+
+    $ bundle
+    $ gem build middleman.gemspec
+    $ gem install middleman*.gem
+
+For the Middleman extension/helper:
+    $ cd contrib/middleman-middlemanager
+    $ gem build middleman-middlemanager.gemspec
+    $ gem install middleman-middlemanager*.gem
+
+### Integrating with Middleman
+
+`Middleman::Extensions::MiddleManager` is just a small shim that invites the MiddleManager to the party.
+
+Add it to your Middleman project's `Gemfile`:
+
+    gem 'middleman-middlemanager'
+
+And add it to your Middleman project's `config.rb`:
+
+    require 'middleman-middlemanager'
+    activate :middle_manager
+
+And example of this is found in `fixtures/middle-managed-app`.
+
+### How Does It Work?
+
+MiddleManager provides a `mgmt` helper, which you can use in your templates to describe editable content areas ("regions"). For example, in ERB you'd do this:
 
     <h3><%= mgmt "Headine" %></h3>
     <p><%= mgmt "Description" %></p>
 
-Now, visit the page where those content areas are present. That will trigger the MiddleManager to do his thing.
+When you visit a page where new regions are defined, that triggers the MiddleManager to do his thing.
 
 <blockquote>
   “Yeah, so if you could go ahead and ... be ... editable, from now on? That'd be greeeeeaattt …”
   <small><cite>– The MiddleManager</cite></small>
 </blockquote>
 
-OK, now jump into the Admin UI to make your edits. If you're running the Middleman extension, you'll find it at `http://localhost:4567/admin`.
+OK, now you can jump into the Admin UI to edit those regions. (If you're running the Middleman extension, you'll find it at `http://localhost:4567/admin`)
 
-Now you can edit the "Headline" and "Description" Regions. Flip back to your page to see the changes.
-
-### Integrating with Middleman
-
-`Middleman::Extensions::MiddleManager` is just a small shim that invites the MiddleManager to the party.
-
-Just `require` the extension file, and activate it from your Middleman project's `config.rb`:
-
-    activate :middle_manager
+Once you've edited the "Headline" and "Description" regions, flip back to your page to see the changes.
 
 ### Demo
 
@@ -42,19 +64,23 @@ Be sure to run `bundle` first, to install the dependencies.
 Try a demo Middleman site with MiddleManager activated:
 
     $ cd fixtures/middle-managed-app
+    $ bundle
     $ bundle exec middleman
+    $ open http://localhost:4567
+    $ open http://localhost:4567/admin
 
-You can also test the MiddleManager Admin UI directly. 
+You can also test an example MiddleManager Admin UI on its own:
 
     $ bundle exec shotgun fixtures/config.ru -s thin
+    $ open http://localhost:9393/admin
 
-Visit http://localhost:9393/admin to see it working. 
+The Admin UI is just a Sinatra app (`MiddleManager::Server`) which can be run as an independent app, or even embedded in other apps via Rack.
+
+The Admin UI looks like this:
 
 ![](https://github.com/downloads/audionerd/middlemanager/middlemanager-admin-ui-index.png)
 
 ![](https://github.com/downloads/audionerd/middlemanager/middlemanager-admin-ui-region-editing.png)
-
-The Admin UI is just a Sinatra app (`MiddleManager::Server`) which can be run as an independent app, or even embedded in other apps via Rack.
 
 ### Influences
 

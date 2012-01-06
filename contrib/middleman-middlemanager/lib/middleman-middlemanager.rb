@@ -1,4 +1,5 @@
-require File.join(File.dirname(__FILE__), '..', '..', '..', 'lib', 'middle_manager')
+require 'middleman'
+require 'middle_manager'
 
 module Middleman::Extensions
   module MiddleManager

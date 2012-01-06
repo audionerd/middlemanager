@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), 'lib', 'middle_manager')
+require 'middleman-middlemanager'
 activate :middle_manager
 
 page "/generated.html", :proxy => "/interior.html"
