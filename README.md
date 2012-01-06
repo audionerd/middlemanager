@@ -20,6 +20,7 @@ For MiddleManager
     $ gem install middleman*.gem
 
 For the Middleman extension/helper:
+
     $ cd contrib/middleman-middlemanager
     $ gem build middleman-middlemanager.gemspec
     $ gem install middleman-middlemanager*.gem
@@ -74,9 +75,9 @@ You can also test an example MiddleManager Admin UI on its own:
     $ bundle exec shotgun fixtures/config.ru -s thin
     $ open http://localhost:9393/admin
 
-The Admin UI is just a Sinatra app (`MiddleManager::Server`) which can be run as an independent app, or even embedded in other apps via Rack.
+### Screenshots 
 
-The Admin UI looks like this:
+The Admin UI is just a Sinatra app (`MiddleManager::Server`) which can be run as an independent app, or even embedded in other apps via Rack.
 
 ![](https://github.com/downloads/audionerd/middlemanager/middlemanager-admin-ui-index.png)
 
