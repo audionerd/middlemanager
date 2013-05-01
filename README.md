@@ -1,3 +1,30 @@
+Hey @audionerd,
+
+What's the status of middlemanager? I need a tool like this and I wonder if you use another tool now instead of middlemanger or if you simply don't need middlemanager anymore.
+
+I need a web based tool that will allow someone to edit **parts** of a static site, perferably like what you've setup in middlemanager - chunks of text that have some sort of label and a fixed placement in the HTML. Any suggestions?
+
+Thanks,
+-Tom
+
+PS - What I've come across so far (in no particular order):
+
+http://www.django-cms.org/
+http://www.feincms.org/
+http://philocms.org/
+http://nestacms.com/
+http://tinycms.designskate.com/
+http://mezzanine.jupo.org/
+http://get-simple.info/
+http://textpattern.com/
+https://bitbucket.org/funkybob/gnocchi-cms
+https://github.com/webcube/django-dockitcms
+http://getkirby.com/
+http://statamic.com/
+http://grabaperch.com/
+http://www.couchcms.com/
+http://ellislab.com/expressionengine
+
 # MiddleManager
 ## A Mostly Powerless Little Content Manager For Static Sites
 
